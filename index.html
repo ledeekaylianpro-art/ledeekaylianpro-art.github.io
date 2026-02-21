@@ -146,6 +146,52 @@
     z-index: 2;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
   }
+
+  /* MODAL NETFLIX */
+  .modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+  }
+
+  .modal-content {
+    background: #181818;
+    padding: 30px;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 10px;
+    position: relative;
+  }
+
+  .modal-content img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  .modal-content h2 {
+    margin-top: 0;
+  }
+
+  .modal-content ul {
+    padding-left: 20px;
+  }
+
+  .modal-content li {
+    margin-bottom: 8px;
+  }
+
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 22px;
+  }
 </style>
 </head>
 <body>
@@ -175,109 +221,87 @@
 
   <div class="cv-title">MON CV</div>
 
+  <!-- SECTION COMPETENCES -->
   <div class="section">
     <h2>Compétences</h2>
     <div class="row">
-
       <div class="card video-card">
-        <img
-          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80"
-          alt="Travailleur"
-          class="preview"
-        />
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80" alt="Travailleur" class="preview" />
         <video muted></video>
         <span>Travailleur</span>
       </div>
 
       <div class="card video-card">
-        <img
-          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
-          alt="Esprit d'équipe"
-          class="preview"
-        />
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Esprit d'équipe" class="preview" />
         <video muted></video>
         <span>Esprit d'équipe</span>
       </div>
 
       <div class="card video-card">
-        <img
-          src="https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=800&q=80"
-          alt="Sérieux"
-          class="preview"
-        />
+        <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=800&q=80" alt="Sérieux" class="preview" />
         <video muted></video>
         <span>Sérieux</span>
       </div>
     </div>
   </div>
 
+  <!-- SECTION EXPERIENCES -->
   <div class="section">
     <h2>Expériences</h2>
     <div class="row">
       <div class="card video-card">
-        <img
-          src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80"
-          alt="Stage de seconde"
-          class="preview"
-        />
+        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" alt="Stage de seconde" class="preview" />
         <video muted></video>
         <span>Stage de seconde</span>
       </div>
 
       <div class="card video-card">
-        <img
-          src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80"
-          alt="Projet personnel"
-          class="preview"
-        />
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="Projet personnel" class="preview" />
         <video muted></video>
         <span>Projet personnel</span>
       </div>
 
       <div class="card video-card">
-        <img
-          src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
-          alt="Stage de 3ème"
-          class="preview"
-        />
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Stage de 3ème" class="preview" />
         <video muted></video>
         <span>Stage de 3ème</span>
       </div>
     </div>
   </div>
 
+  <!-- SECTION LOISIRS -->
   <div class="section">
     <h2>Loisirs</h2>
     <div class="row">
       <div class="card video-card">
-        <img
-          src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=80"
-          alt="Sport"
-          class="preview"
-        />
+        <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=80" alt="Sport" class="preview" />
         <video muted></video>
         <span>Sport</span>
       </div>
 
       <div class="card video-card">
-        <img
-          src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=80"
-          alt="Musique"
-          class="preview"
-        />
+        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=80" alt="Musique" class="preview" />
         <video muted></video>
         <span>Musique</span>
       </div>
 
       <div class="card video-card">
-        <img
-          src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
-          alt="Informatique"
-          class="preview"
-        />
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Informatique" class="preview" />
         <video muted></video>
         <span>Informatique</span>
       </div>
+    </div>
+  </div>
+
+  <!-- MODAL NETFLIX -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">✖</span>
+      <img id="modal-img" src="" />
+      <h2 id="modal-title"></h2>
+      <p id="modal-description"></p>
+      <h3>Épisodes</h3>
+      <ul id="modal-episodes"></ul>
     </div>
   </div>
 
@@ -299,7 +323,7 @@
       alert("Cette page a été créée par Kaylian avec l’aide de ChatGPT 🤖🔥");
     }
 
-    // Liste de vidéos à choisir au hasard (tu peux en ajouter ou modifier)
+    // LISTE DES VIDEOS AU SURVOL
     const videos = [
       "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm",
       "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.webm",
@@ -311,19 +335,15 @@
       const img = card.querySelector("img");
       let timeout;
 
-      // Au survol, on choisit une vidéo au hasard dans la liste
       card.addEventListener("mouseenter", () => {
-        // Choix aléatoire
         const randomIndex = Math.floor(Math.random() * videos.length);
         const randomVideoURL = videos[randomIndex];
-
-        // On crée la source de la vidéo
         video.innerHTML = `<source src="${randomVideoURL}" type="video/webm" />`;
 
         timeout = setTimeout(() => {
           card.classList.add("active");
           video.play();
-        }, 1500); // délai 1,5 secondes
+        }, 1500);
       });
 
       card.addEventListener("mouseleave", () => {
@@ -331,9 +351,76 @@
         card.classList.remove("active");
         video.pause();
         video.currentTime = 0;
-        video.innerHTML = ""; // On enlève la source pour économiser la mémoire
+        video.innerHTML = "";
       });
     });
+
+    // CONTENU NETFLIX AU CLIC
+    const contentData = {
+      "Travailleur": {
+        description: "Toujours motivé, sérieux et investi dans chaque mission.",
+        episodes: ["Épisode 1 : Motivation", "Épisode 2 : Discipline", "Épisode 3 : Réussite"]
+      },
+      "Esprit d'équipe": {
+        description: "Capacité à collaborer efficacement en groupe.",
+        episodes: ["Épisode 1 : Communication", "Épisode 2 : Collaboration"]
+      },
+      "Sérieux": {
+        description: "Travail appliqué et respect des délais.",
+        episodes: ["Épisode 1 : Organisation", "Épisode 2 : Responsabilité"]
+      },
+      "Stage de seconde": {
+        description: "Découverte du monde du travail et premières expériences professionnelles.",
+        episodes: ["Épisode 1 : Observation", "Épisode 2 : Participation"]
+      },
+      "Projet personnel": {
+        description: "Projets réalisés en autonomie pour développer mes compétences.",
+        episodes: ["Épisode 1 : Créativité", "Épisode 2 : Apprentissage"]
+      },
+      "Stage de 3ème": {
+        description: "Premières immersions professionnelles et responsabilités simples.",
+        episodes: ["Épisode 1 : Découverte", "Épisode 2 : Adaptation"]
+      },
+      "Sport": {
+        description: "Activités physiques régulières pour rester en forme.",
+        episodes: ["Épisode 1 : Football", "Épisode 2 : Natation", "Épisode 3 : Course"]
+      },
+      "Musique": {
+        description: "Passion pour le rythme et la mélodie.",
+        episodes: ["Épisode 1 : Piano", "Épisode 2 : Guitare"]
+      },
+      "Informatique": {
+        description: "Développement web et exploration de nouvelles technologies.",
+        episodes: ["Épisode 1 : HTML/CSS", "Épisode 2 : JavaScript", "Épisode 3 : Projets"]
+      }
+    };
+
+    document.querySelectorAll(".card").forEach(card => {
+      card.addEventListener("click", () => {
+        const title = card.querySelector("span").textContent;
+        const imgSrc = card.querySelector("img").src;
+
+        document.getElementById("modal-img").src = imgSrc;
+        document.getElementById("modal-title").textContent = title;
+        document.getElementById("modal-description").textContent = contentData[title]?.description || "Description à venir...";
+
+        const episodesList = document.getElementById("modal-episodes");
+        episodesList.innerHTML = "";
+
+        const episodes = contentData[title]?.episodes || ["Épisode 1 : À venir"];
+        episodes.forEach(ep => {
+          const li = document.createElement("li");
+          li.textContent = ep;
+          episodesList.appendChild(li);
+        });
+
+        document.getElementById("modal").style.display = "flex";
+      });
+    });
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
   </script>
 </body>
 </html>
