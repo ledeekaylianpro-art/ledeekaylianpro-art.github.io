@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kaylian - CV Netflix avec vidéos aléatoires</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet" />
+
+<style>
+  body {
+    margin: 0;
+    background: #141414;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+  }
+
+  header {
+    position: relative;
+    text-align: center;
+    padding: 30px;
+  }
+
+  header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 90px;
+    color: #e50914;
+    letter-spacing: 6px;
+    margin: 0;
+  }
+
+  .contact {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    font-size: 14px;
+  }
+
+  /* MENU HAMBURGER */
+  .menu-container {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+  }
+
+  .hamburger {
+    width: 30px;
+    cursor: pointer;
+  }
+
+  .hamburger div {
+    height: 4px;
+    background: white;
+    margin: 6px 0;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  .dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 45px;
+    background: #222;
+    border-radius: 6px;
+    overflow: hidden;
+    min-width: 200px;
+    z-index: 100;
+  }
+
+  .dropdown div {
+    padding: 12px 15px;
+    cursor: pointer;
+  }
+
+  .dropdown div:hover {
+    background: #e50914;
+  }
+
+  .dropdown.show {
+    display: block;
+  }
+
+  .cv-title {
+    padding-left: 60px;
+    font-weight: 800;
+    font-size: 26px;
+  }
+
+  .section {
+    padding: 20px 60px;
+  }
+
+  .row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  /* CARTES */
+  .card {
+    position: relative;
+    width: 260px;
+    height: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+  }
+
+  .card:hover {
+    transform: scale(1.15);
+    z-index: 10;
+  }
+
+  .card img,
+  .card video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    transition: opacity 0.4s ease;
+    border-radius: 8px;
+  }
+
+  .card video {
+    opacity: 0;
+  }
+
+  .card.active video {
+    opacity: 1;
+  }
+
+  .card.active img {
+    opacity: 0;
+  }
+
+  .card span {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    z-index: 2;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="contact">
+      📍 10 Rue Exemple, 75000 Paris<br />
+      📞 06 00 00 00 00<br />
+      ✉ kaylian@email.com
+    </div>
+
+    <div class="menu-container">
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <div class="dropdown" id="dropdown">
+        <div onclick="scrollToContact()">📞 Me contacter</div>
+        <div onclick="sendMail()">✉ M'envoyer un mail</div>
+        <div onclick="showCredit()">ℹ À propos</div>
+      </div>
+    </div>
+
+    <h1>KAYLIAN</h1>
+  </header>
+
+  <div class="cv-title">MON CV</div>
+
+  <div class="section">
+    <h2>Compétences</h2>
+    <div class="row">
+
+      <div class="card video-card">
+        <img
+          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80"
+          alt="Travailleur"
+          class="preview"
+        />
+        <video muted></video>
+        <span>Travailleur</span>
+      </div>
+
+      <div class="card video-card">
+        <img
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
+          alt="Esprit d'équipe"
+          class="preview"
+        />
+        <video muted></video>
+        <span>Esprit d'équipe</span>
+      </div>
+
+      <div class="card video-card">
+        <img
+          src="https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=800&q=80"
+          alt="Sérieux"
+          class="preview"
+        />
+        <video muted></video>
+        <span>Sérieux</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Expériences</h2>
+    <div class="row">
+      <div class="card video-card">
+        <img
+          src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80"
+          alt="Stage de seconde"
+          class="preview"
+        />
+        <video muted></video>
+        <span>Stage de seconde</span>
+      </div>
+
+      <div class="card video-card">
+        <img
+          src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80"
+          alt="Projet personnel"
+          class="preview"
+        />
+        <video muted></video>
+        <span>Projet personnel</span>
+      </div>
+
+      <div class="card video-card">
+        <img
+          src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
+          alt="Stage de 3ème"
+          class="preview"
+        />
+        <video muted></video>
+        <span>Stage de 3ème</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Loisirs</h2>
+    <div class="row">
+      <div class="card video-card">
+        <img
+          src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=80"
+          alt="Sport"
+          class="preview"
+        />
+        <video muted></video>
+        <span>Sport</span>
+      </div>
+
+      <div class="card video-card">
+        <img
+          src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=80"
+          alt="Musique"
+          class="preview"
+        />
+        <video muted></video>
+        <span>Musique</span>
+      </div>
+
+      <div class="card video-card">
+        <img
+          src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+          alt="Informatique"
+          class="preview"
+        />
+        <video muted></video>
+        <span>Informatique</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // MENU HAMBURGER
+    function toggleMenu() {
+      document.getElementById("dropdown").classList.toggle("show");
+    }
+
+    function scrollToContact() {
+      document.querySelector(".contact").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function sendMail() {
+      window.location.href = "mailto:kaylian@email.com";
+    }
+
+    function showCredit() {
+      alert("Cette page a été créée par Kaylian avec l’aide de ChatGPT 🤖🔥");
+    }
+
+    // Liste de vidéos à choisir au hasard (tu peux en ajouter ou modifier)
+    const videos = [
+      "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm",
+      "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.webm",
+      "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/tank.webm"
+    ];
+
+    document.querySelectorAll(".video-card").forEach((card) => {
+      const video = card.querySelector("video");
+      const img = card.querySelector("img");
+      let timeout;
+
+      // Au survol, on choisit une vidéo au hasard dans la liste
+      card.addEventListener("mouseenter", () => {
+        // Choix aléatoire
+        const randomIndex = Math.floor(Math.random() * videos.length);
+        const randomVideoURL = videos[randomIndex];
+
+        // On crée la source de la vidéo
+        video.innerHTML = `<source src="${randomVideoURL}" type="video/webm" />`;
+
+        timeout = setTimeout(() => {
+          card.classList.add("active");
+          video.play();
+        }, 1500); // délai 1,5 secondes
+      });
+
+      card.addEventListener("mouseleave", () => {
+        clearTimeout(timeout);
+        card.classList.remove("active");
+        video.pause();
+        video.currentTime = 0;
+        video.innerHTML = ""; // On enlève la source pour économiser la mémoire
+      });
+    });
+  </script>
+</body>
+</html>
