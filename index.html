@@ -146,12 +146,9 @@
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.85);
-    z-index: 200;
-    overflow-y: auto;
-    padding: 20px;
-    display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    z-index: 200;
   }
 
   .modal-content {
@@ -161,8 +158,6 @@
     max-width: 800px;
     border-radius: 10px;
     position: relative;
-    max-height: 90vh;
-    overflow-y: auto;
   }
 
   .modal-content img {
@@ -191,35 +186,12 @@
     font-size: 22px;
   }
 
-  /* RESPONSIVE */
   @media (max-width: 768px) {
     .section {
-      padding: 20px;
+      padding: 20px 20px;
     }
-
-    .card {
-      width: 45%;
-      height: 120px;
-    }
-
-    .cv-title {
-      padding-left: 20px;
-      font-size: 22px;
-    }
-
-    header h1 {
-      font-size: 60px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .card {
-      width: 100%;
-      height: 120px;
-    }
-
-    header h1 {
-      font-size: 40px;
+    .row {
+      justify-content: center;
     }
   }
 </style>
@@ -234,9 +206,9 @@
       </div>
 
       <div class="dropdown" id="dropdown">
-        <div onclick="showContact()">📞 Me contacter</div>
+        <div onclick="scrollToContact()">📞 Me contacter</div>
         <div onclick="sendMail()">✉ M'envoyer un mail</div>
-        <div onclick="showCredit()">ℹ À propos</div>
+        <div onclick="showInfo()">ℹ Infos personnelles</div>
       </div>
     </div>
 
@@ -335,7 +307,7 @@
       document.getElementById("dropdown").classList.toggle("show");
     }
 
-    function showContact() {
+    function scrollToContact() {
       alert("📍 10 Rue Exemple, 75000 Paris\n📞 06 00 00 00 00\n✉ kaylian@email.com");
     }
 
@@ -343,11 +315,15 @@
       window.location.href = "mailto:kaylian@email.com";
     }
 
+    function showInfo() {
+      alert("📍 10 Rue Exemple, 75000 Paris\n📞 06 00 00 00 00\n✉ kaylian@email.com");
+    }
+
     function showCredit() {
       alert("Cette page a été créée par Kaylian avec l’aide de ChatGPT 🤖🔥");
     }
 
-    // LISTE DES VIDEOS AU SURVOL
+    // VIDEOS AU SURVOL
     const videos = [
       "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm",
       "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.webm",
@@ -356,7 +332,10 @@
 
     document.querySelectorAll(".video-card").forEach((card) => {
       const video = card.querySelector("video");
+      const img = card.querySelector("img");
       let timeout;
+
+      card.classList.remove("active"); // Aucune carte active au départ
 
       card.addEventListener("mouseenter", () => {
         const randomIndex = Math.floor(Math.random() * videos.length);
@@ -380,42 +359,15 @@
 
     // CONTENU NETFLIX AU CLIC
     const contentData = {
-      "Travailleur": {
-        description: "Toujours motivé, sérieux et investi dans chaque mission.",
-        episodes: ["Épisode 1 : Motivation", "Épisode 2 : Discipline", "Épisode 3 : Réussite"]
-      },
-      "Esprit d'équipe": {
-        description: "jais la Capacité à collaborer efficacement en groupe.",
-        episodes: ["Épisode 1 : Communication", "Épisode 2 : Collaboration"]
-      },
-      "Sérieux": {
-        description: "je produit un Travail appliqué et respect des délais.",
-        episodes: ["Épisode 1 : Organisation", "Épisode 2 : Responsabilité"]
-      },
-      "Stage de seconde": {
-        description: "lors de mon stage de seconde, j'ai pu découvrir l'entreprise Sinatek dans le 20ème arrondissement de Paris.",
-        episodes: ["Épisode 1 : Observation", "Épisode 2 : Participation"]
-      },
-      "Projet personnel": {
-        description: "j'ai pu réaliser et reproduire le jeu flappy Bird en autonomie chez moi à l'aide de Scratch.",
-        episodes: ["Épisode 1 : Créativité", "Épisode 2 : Apprentissage"]
-      },
-      "Stage de 3ème": {
-        description: "lors de mon stage de 3ème j'ai pu découvrir l'entreprise Agora dans le 77.",
-        episodes: ["Épisode 1 : Découverte", "Épisode 2 : Adaptation"]
-      },
-      "Sport": {
-        description: "je fais des Activités physiques régulières pour rester en forme.",
-        episodes: ["Épisode 1 : Football", "Épisode 2 :Basketball", "Épisode 3 : Salle de sport"]
-      },
-      "Musique": {
-        description: "Jécoute de la musique de temp a autres .",
-        episodes: ["Épisode 1 : Piano", "Épisode 2 : Guitare"]
-      },
-      "Informatique": {
-        description: "jais deja fait des pages html et donc du Développement web.",
-        episodes: ["Épisode 1 : HTML/CSS", "Épisode 2 : JavaScript", "Épisode 3 : Projets"]
-      }
+      "Travailleur": { description: "Toujours motivé, sérieux et investi dans chaque mission.", episodes: ["Épisode 1 : Motivation", "Épisode 2 : Discipline", "Épisode 3 : Réussite"] },
+      "Esprit d'équipe": { description: "Capacité à collaborer efficacement en groupe.", episodes: ["Épisode 1 : Communication", "Épisode 2 : Collaboration"] },
+      "Sérieux": { description: "Travail appliqué et respect des délais.", episodes: ["Épisode 1 : Organisation", "Épisode 2 : Responsabilité"] },
+      "Stage de seconde": { description: "Découverte de l'entreprise Sinatek dans le 20ème arrondissement de Paris.", episodes: ["Épisode 1 : Observation", "Épisode 2 : Participation"] },
+      "Projet personnel": { description: "Réalisation du jeu Flappy Bird en autonomie avec Scratch.", episodes: ["Épisode 1 : Créativité", "Épisode 2 : Apprentissage"] },
+      "Stage de 3ème": { description: "Découverte de l'entreprise Agora dans le 77.", episodes: ["Épisode 1 : Découverte", "Épisode 2 : Adaptation"] },
+      "Sport": { description: "Activités physiques régulières pour rester en forme.", episodes: ["Épisode 1 : Football", "Épisode 2 : Basketball", "Épisode 3 : Salle de sport"] },
+      "Musique": { description: "J'écoute de la musique de temps en temps.", episodes: ["Épisode 1 : Piano", "Épisode 2 : Guitare"] },
+      "Informatique": { description: "Développement web : HTML/CSS/JS et projets personnels.", episodes: ["Épisode 1 : HTML/CSS", "Épisode 2 : JavaScript", "Épisode 3 : Projets"] }
     };
 
     document.querySelectorAll(".card").forEach(card => {
