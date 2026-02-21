@@ -29,6 +29,13 @@
     margin: 0;
   }
 
+  header .bio {
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 18px;
+    color: #f1f1f1;
+  }
+
   /* MENU HAMBURGER */
   .menu-container {
     position: absolute;
@@ -149,6 +156,8 @@
     justify-content: center;
     align-items: center;
     z-index: 200;
+    overflow-y: auto;
+    padding: 20px;
   }
 
   .modal-content {
@@ -158,6 +167,8 @@
     max-width: 800px;
     border-radius: 10px;
     position: relative;
+    border: 2px solid #e50914; /* bordure pour encadrer */
+    box-shadow: 0 0 20px rgba(0,0,0,0.7);
   }
 
   .modal-content img {
@@ -181,9 +192,17 @@
   .close {
     position: absolute;
     top: 15px;
-    right: 20px;
+    right: 15px; /* toujours bien placé dans le coin */
     cursor: pointer;
     font-size: 22px;
+    background: rgba(0,0,0,0.5);
+    padding: 5px 10px;
+    border-radius: 50%;
+    transition: background 0.2s;
+  }
+
+  .close:hover {
+    background: rgba(229,9,20,0.8);
   }
 
   @media (max-width: 768px) {
@@ -213,6 +232,7 @@
     </div>
 
     <h1>KAYLIAN</h1>
+    <div class="bio">À la recherche de stage en informatique ou cybersécurité</div>
   </header>
 
   <div class="cv-title">MON CV</div>
@@ -332,9 +352,7 @@
 
     document.querySelectorAll(".video-card").forEach((card) => {
       const video = card.querySelector("video");
-      const img = card.querySelector("img");
       let timeout;
-
       card.classList.remove("active"); // Aucune carte active au départ
 
       card.addEventListener("mouseenter", () => {
