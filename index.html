@@ -29,13 +29,6 @@
     margin: 0;
   }
 
-  .contact {
-    position: absolute;
-    top: 20px;
-    left: 40px;
-    font-size: 14px;
-  }
-
   /* MENU HAMBURGER */
   .menu-container {
     position: absolute;
@@ -196,12 +189,6 @@
 </head>
 <body>
   <header>
-    <div class="contact">
-      📍 10 Rue Exemple, 75000 Paris<br />
-      📞 06 00 00 00 00<br />
-      ✉ kaylian@email.com
-    </div>
-
     <div class="menu-container">
       <div class="hamburger" onclick="toggleMenu()">
         <div></div>
@@ -210,7 +197,7 @@
       </div>
 
       <div class="dropdown" id="dropdown">
-        <div onclick="scrollToContact()">📞 Me contacter</div>
+        <div onclick="showContact()">📞 Me contacter</div>
         <div onclick="sendMail()">✉ M'envoyer un mail</div>
         <div onclick="showCredit()">ℹ À propos</div>
       </div>
@@ -311,8 +298,8 @@
       document.getElementById("dropdown").classList.toggle("show");
     }
 
-    function scrollToContact() {
-      document.querySelector(".contact").scrollIntoView({ behavior: "smooth" });
+    function showContact() {
+      alert("📍 10 Rue Exemple, 75000 Paris\n📞 06 00 00 00 00\n✉ kaylian@email.com");
     }
 
     function sendMail() {
@@ -332,7 +319,6 @@
 
     document.querySelectorAll(".video-card").forEach((card) => {
       const video = card.querySelector("video");
-      const img = card.querySelector("img");
       let timeout;
 
       card.addEventListener("mouseenter", () => {
