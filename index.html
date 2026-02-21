@@ -167,7 +167,7 @@
     max-width: 800px;
     border-radius: 10px;
     position: relative;
-    border: 2px solid #e50914; /* bordure pour encadrer */
+    border: 2px solid #e50914;
     box-shadow: 0 0 20px rgba(0,0,0,0.7);
   }
 
@@ -189,20 +189,22 @@
     margin-bottom: 8px;
   }
 
+  /* CROIX FIXE DANS LE COIN DU CADRE (au-dessus de l'image) */
   .close {
     position: absolute;
-    top: 15px;
-    right: 15px; /* toujours bien placé dans le coin */
+    top: 20px;       /* marge à partir du haut du cadre */
+    right: 20px;     /* marge à partir du bord droit du cadre */
     cursor: pointer;
     font-size: 22px;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.7);
     padding: 5px 10px;
     border-radius: 50%;
+    z-index: 5;      /* au-dessus de l'image */
     transition: background 0.2s;
   }
 
   .close:hover {
-    background: rgba(229,9,20,0.8);
+    background: rgba(229,9,20,0.9);
   }
 
   @media (max-width: 768px) {
@@ -353,7 +355,7 @@
     document.querySelectorAll(".video-card").forEach((card) => {
       const video = card.querySelector("video");
       let timeout;
-      card.classList.remove("active"); // Aucune carte active au départ
+      card.classList.remove("active");
 
       card.addEventListener("mouseenter", () => {
         const randomIndex = Math.floor(Math.random() * videos.length);
